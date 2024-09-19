@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виртуальный питомец</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="cat-box">
+                <img id="cat-img" src="cat-neutral.png" alt="Кот">
+            </div>
+        </div>
+        <div class="right">
+            <div class="status">
+                <h3>Параметры кота</h3>
+                <div id="status">Счастье: 50%, Сытость: 50%, Ухоженность:50%</div>
+            </div>
+            <div class="controls">
+                <h3>Имя питомца:</h3>
+                <input type="text" id="cat-name" maxlength="10" placeholder="Введите имя">
+                <button onclick="setName()">Установить имя</button>
+                <button onclick="feedCat()">Покормить</button>
+                <button onclick="playCat()">Поиграть</button>
+                <button onclick="groomCat()">Причесать</button>
+                <button onclick="leaveCat()">Оставить в покое</button>
+            </div>
+            <div id="dialogue-box">
+                <h3>Диалог</h3>
+                <div id="dialogue">Я ваш котик. Позаботьтесь, пожалуйста, обо мне!</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
