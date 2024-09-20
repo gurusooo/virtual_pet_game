@@ -74,7 +74,6 @@ extern "C" {
     void set_cat_name(const char* name) {
         cat_name = std::string(name);
     }
-
     
 }
 
