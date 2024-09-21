@@ -1,11 +1,4 @@
-  function setName() {
-      let name = document.getElementById('cat-name').value;
-      if (name) {
-          Module._set_cat_name(name);
-      }
-  }
-
-  function feedCat() {
+function feedCat() {
       Module._feed_cat();
   }
 

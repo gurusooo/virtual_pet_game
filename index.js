@@ -906,8 +906,8 @@ function dbg(...args) {
 // === Body ===
 
 var ASM_CONSTS = {
-  66244: () => { alert("Игра окончена! Кот устал. Кот уходит. ᨐฅ"); },  
- 66332: ($0, $1) => { document.getElementById("status").innerText = UTF8ToString($0); document.getElementById("dialogue").innerText = UTF8ToString($1); }
+  66372: () => { alert("Игра окончена! Кот устал. Кот уходит. ᨐฅ"); },  
+ 66460: ($0, $1) => { document.getElementById("status").innerText = UTF8ToString($0); document.getElementById("dialogue").innerText = UTF8ToString($1); }
 };
 
 // end include: preamble.js
@@ -2063,7 +2063,6 @@ var ASM_CONSTS = {
       return func;
     };
   
-  
   var writeArrayToMemory = (array, buffer) => {
       assert(array.length >= 0, 'writeArrayToMemory array must have a length (should be an array or typed array)')
       HEAP8.set(array, buffer);
@@ -2211,6 +2210,8 @@ var ASM_CONSTS = {
       ret = onDone(ret);
       return ret;
     };
+
+  
   
     /**
      * @param {string=} returnType
@@ -2262,7 +2263,6 @@ var _feed_cat = Module['_feed_cat'] = createExportWrapper('feed_cat', 0);
 var _play_cat = Module['_play_cat'] = createExportWrapper('play_cat', 0);
 var _groom_cat = Module['_groom_cat'] = createExportWrapper('groom_cat', 0);
 var _leave_cat = Module['_leave_cat'] = createExportWrapper('leave_cat', 0);
-var _set_cat_name = Module['_set_cat_name'] = createExportWrapper('set_cat_name', 1);
 var _main = createExportWrapper('main', 2);
 var _fflush = createExportWrapper('fflush', 1);
 var _emscripten_stack_init = () => (_emscripten_stack_init = wasmExports['emscripten_stack_init'])();
@@ -2278,6 +2278,7 @@ var dynCall_jiji = Module['dynCall_jiji'] = createExportWrapper('dynCall_jiji', 
 // include: postamble.js
 // === Auto-generated postamble setup entry stuff ===
 
+Module['ccall'] = ccall;
 Module['cwrap'] = cwrap;
 var missingLibrarySymbols = [
   'writeI53ToI64',
@@ -2504,7 +2505,6 @@ var unexportedSymbols = [
   'wasmTable',
   'noExitRuntime',
   'getCFunc',
-  'ccall',
   'freeTableIndexes',
   'functionsInTableMap',
   'setValue',

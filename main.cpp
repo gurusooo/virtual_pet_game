@@ -2,25 +2,28 @@
 #include <string>
 #include <emscripten.h>
 
-int happiness = 50, fullness = 50, cleanliness = 50, health = 100; 
-std::string cat_name = "Cat"; 
+int happiness = 50, fullness = 50, cleanliness = 50, health = 90; 
+std::string cat_name = "Сэм"; 
 
 extern "C" {
     
     EMSCRIPTEN_KEEPALIVE
     void update_status() {
-        std::string message = "Я " + cat_name;
+        std::string message = "Меня зовут " + cat_name;
 
         if (happiness > 80 && fullness > 80 && cleanliness > 80 && health > 80) {
             message += " и я счастлив как никогда! /ᐠ-⩊-マ₊˚⊹♡₊ ⊹";
-        } else if (happiness < 10 || fullness < 10 || cleanliness < 10 || health < 10) {
-            message += " и мне очень плохо! /ᐠﹷ ‸ ﹷ ᐟ";
+        } else if (happiness <= 10 || fullness <= 10 || cleanliness <= 10 || health <= 10) {
             EM_ASM({
                 alert("Игра окончена! Кот устал. Кот уходит. ᨐฅ");
             });
             emscripten_cancel_main_loop();
-        } else {
-            message += " и мои параметры:";
+        } else if (happiness  <= 25 || fullness <= 25 || cleanliness <= 25 || health <= 25) {
+            message += " и мне очень плохо! /ᐠﹷ ‸ ﹷ ᐟ поухаживай за мной!";
+        }
+        
+         else {
+            message += " и как я себя чувствую в процентах (а что такое проценты?..)";
         }
 
         std::string status = "Счастье: " + std::to_string(happiness) +
@@ -64,15 +67,10 @@ extern "C" {
         fullness = std::max(0, fullness - 5);
         happiness = std::max(0, happiness - 5);
         cleanliness = std::max(0, cleanliness - 5);
-        if (fullness < 20 || cleanliness < 20) {
-            health = std::max(0, health - 5);
+        if (fullness < 30 || cleanliness < 30) {
+            health = std::max(0, health - 10);
         }
         update_status();
-    }
-
-    EMSCRIPTEN_KEEPALIVE
-    void set_cat_name(const char* name) {
-        cat_name = std::string(name);
     }
     
 }
